@@ -70,7 +70,8 @@ public class Blackboard extends Observable {
 		return statusBarMessage;
 	}
 
-	
+	public void setStatusBarMessage(String message){statusBarMessage = message;}
+
 	/**
 	 * Removes passed Box from the boxes linkedlist
 	 * 
@@ -94,6 +95,5 @@ public class Blackboard extends Observable {
 		return new Point(0, 0);
 	}
 	
-	public void setStatusBarMessage(String message){statusBarMessage = message;}
 }
 
