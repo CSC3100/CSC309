@@ -24,7 +24,7 @@ public class TextPanel extends JPanel implements Observer, DocumentListener{
     public void update(Observable o, Object arg) {
         String line = "";
         for (Box c : Blackboard.getInstance().getBoxes()) {
-            line = line + c.getName() + "\n";
+            line = line + "class " + c.getName() + " {\n}" + "\n";
         }
         textArea.setText(line);
         textArea.revalidate();
