@@ -14,6 +14,7 @@ public class Box {
 	private ArrayList<String> methods;
 	private ArrayList<String> variables;
 	private boolean isSelected;
+	private boolean isInterface;
 	
 	public boolean isSelected() {
 		return isSelected;
@@ -30,7 +31,7 @@ public class Box {
 		return false;
 	}
 	
-	public Box(String name, int x, int y) {
+	public Box(String name, int x, int y, boolean isInterface) {
 		x = (x < 50) ? 50 : x - 50;
 		y = (y < 25) ? 25 : y - 25;
 		this.name = name;
@@ -40,6 +41,11 @@ public class Box {
 		this.variables = new ArrayList<>();
 		this.methods = new ArrayList<>();
 		this.connections = new ArrayList<>();
+		this.isInterface = isInterface;
+	}
+
+	public boolean getInterface(){
+		return isInterface;
 	}
 	
 	public void draw(Graphics g) {
@@ -55,6 +61,9 @@ public class Box {
 		int w = g.getFontMetrics().stringWidth(getName());
 		int xx = (int) getPoint().getX() + (getWidth() / 2) - w / 2;
 		int yy = (int) (getPoint().getY() + 20);
+		if(isInterface){
+			g.drawString("<<interface>>", (int) getPoint().getX() + (getWidth() / 2) - 50, yy - 10);
+		}
 		g.drawString(getName(), xx, yy);
 	}
 	
