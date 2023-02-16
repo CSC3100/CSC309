@@ -35,6 +35,7 @@ public class MainFrameController implements ActionListener {
                 System.out.println("under construction ...3");
                 break;
             case "Build Project":
+                Blackboard.getInstance().buildProjectStatusBarUpdate();
                 System.out.println("under construction ...4");
                 break;
             case "About":
