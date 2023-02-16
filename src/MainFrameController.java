@@ -1,26 +1,15 @@
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.Vector;
-
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import javax.swing.ImageIcon;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 
-// Annes Huynh, John A
-
 public class MainFrameController implements ActionListener {
-    private JFrame MainFrame;
 
-    //private static final String IMG_PATH = "src/logo.ico";
+    private JFrame MainFrame;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -58,7 +47,7 @@ public class MainFrameController implements ActionListener {
                     if (tokens.get(i).getToken().equals("class"))
                     {
                         Point p = Blackboard.getInstance().getNextPositionAvailable();
-                        Box b = new Box(tokens.get(i+1).getToken(), (int)p.getX(), (int)p.getY());
+                        Box b = new Box(tokens.get(i+1).getToken(), (int)p.getX(), (int)p.getY(), false);
                         i += 2;
                     }
                     else
@@ -70,12 +59,9 @@ public class MainFrameController implements ActionListener {
                 break;
 
             case "About":
-
                 System.out.println("About Button Clicked");            
-                ImageIcon img = createImageIcon("src\\logo.jpg", "cal poly logo");
-                JOptionPane.showMessageDialog(MainFrame, "CSC 309 - Software Engineering II", "About", JOptionPane.NO_OPTION, img);
-
-                System.out.println("under construction ...5");
+                ImageIcon img = new ImageIcon ("logo.jpg","logo");
+                JOptionPane.showMessageDialog(MainFrame, "CSC 309 - Software Engineering II", "About", JOptionPane.INFORMATION_MESSAGE, img);
             case "Class":
                 System.out.println("Class Button");
                 break;
@@ -93,20 +79,7 @@ public class MainFrameController implements ActionListener {
                 break;
             case "Composition":
                 System.out.println("Composition Button");
-
                 break;
         }
-    }
-
-    protected ImageIcon createImageIcon(String path,
-                                        String description) {
-        java.net.URL imgURL = getClass().getResource(path);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL, description);
-        } else {
-            System.err.println("Couldn't find file: " + path);
-            return null;
-        }
-    }
+    }   
 }
-
