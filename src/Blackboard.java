@@ -132,6 +132,11 @@ public class Blackboard extends Observable {
 		}
 	}
 
+	public void setBoxes(LinkedList<Box> boxes)
+	{
+		this.boxes = boxes;
+}
+
 	public void renameBox(Box clickedBox) {
 		String name = JOptionPane.showInputDialog("Please input name");
 		if(name != null) {
