@@ -16,14 +16,35 @@ public class Box {
 	private boolean isSelected;
 	private boolean isInterface;
 	
+
+	/**
+	 * getter for selection status
+	 * 
+	 * @return 
+	 */
 	public boolean isSelected() {
 		return isSelected;
 	}
 	
+	/**
+	 * setter for selection status
+	 * 
+	 * @param selected 
+	 */
 	public void setSelected(boolean selected) {
 		isSelected = selected;
 	}
 	
+	/**
+	 * Checks if the passed coordinates are within the
+	 * boundries of the Box
+	 * 
+	 * @param x int x axis
+	 * @param y int y axis
+	 * 
+	 * @return if the passed coordinates are within the
+	 * boundries of the Box
+	 */
 	public boolean contains(int x, int y) {
 		if (x > point.getX() && x < point.getX() + width &&
 			y > point.getY() && y < point.getY() + height)
@@ -31,7 +52,16 @@ public class Box {
 		return false;
 	}
 	
+	/**
+	 * Initializes the Box instance with a name and coordinates
+	 * 
+	 * @param name String
+	 * @param x int
+	 * @param y int
+   * @param isInterface
+	 */
 	public Box(String name, int x, int y, boolean isInterface) {
+
 		x = (x < 50) ? 50 : x - 50;
 		y = (y < 25) ? 25 : y - 25;
 		this.name = name;
@@ -48,6 +78,11 @@ public class Box {
 		return isInterface;
 	}
 	
+	/**
+	 * Draws the box on the passed Graphics panel
+	 * 
+	 * @param g The Graphics panel 
+	 */
 	public void draw(Graphics g) {
 		g.setColor(Color.GRAY);
 		g.drawRect((int) getPoint().getX(), (int) getPoint().getY(), getWidth(), height);
@@ -67,32 +102,65 @@ public class Box {
 		g.drawString(getName(), xx, yy);
 	}
 	
+	/**
+	 * Getter for box name
+	 * 
+	 * @return String box name
+	 */
 	public String getName() {
 		return this.name;
 	}
 	
+	/**
+	 * Setter for box name
+	 * 
+	 * @param name
+	 */
 	public void setName(String name) {
 		Blackboard.getInstance().renameBoxStatusBarUpdate();
 		this.name = name;
 	}
 	
+	/**
+	 * getter for the coordinates
+	 * 
+	 * @return
+	 */
 	public Point getPoint() {
 		return point;
 	}
 	
+	/**
+	 * Setter for the coordinates
+	 * 
+	 * @param x
+	 * @param y
+	 */
 	public void setPoint(int x, int y) {
 		point = new Point(x - 50, y - 25);
 	}
 	
-	
+	/**
+	 * Getter for the width of the box
+	 * 
+	 * @return
+	 */
 	public int getWidth() {
 		return width;
 	}
 	
+	/**
+	 * Getter for the box connections
+	 * 
+	 * @return ArrayList of box connections
+	 */
 	public ArrayList<Connections> getConnections() {
 		return connections;
 	}
 	
+	/**
+	 * TODO
+	 */
 	public void resize() {
 	}
 }

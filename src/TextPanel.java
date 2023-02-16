@@ -11,6 +11,7 @@ public class TextPanel extends JPanel implements Observer, DocumentListener{
     private JTextArea textArea;
     
     public TextPanel(){
+        
         textArea = new JTextArea("Source code will appear here: ");
         JScrollPane panel = new JScrollPane (textArea);
         panel.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -24,7 +25,7 @@ public class TextPanel extends JPanel implements Observer, DocumentListener{
     public void update(Observable o, Object arg) {
         String line = "";
         for (Box c : Blackboard.getInstance().getBoxes()) {
-            line = line + c.getName() + "\n";
+            line = line + "class " + c.getName() + " {\n}" + "\n";
         }
         textArea.setText(line);
         textArea.revalidate();
