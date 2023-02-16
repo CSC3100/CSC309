@@ -45,6 +45,10 @@ public class Blackboard extends Observable {
 			notifyObservers();
 		}
 	}
+	public void setBoxes(LinkedList<Box> boxes)
+	{
+		this.boxes = boxes;
+	}
 	
 	public Point getNextPositionAvailable(){
 		return new Point(0, 0);
