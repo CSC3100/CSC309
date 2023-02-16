@@ -1,5 +1,3 @@
-package lexer;
-
 import java.util.Vector;
 
 public class Lexer {
