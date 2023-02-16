@@ -25,6 +25,20 @@ public class Blackboard extends Observable {
 		setChanged();
 		notifyObservers();
 	}
+
+	public Point calculatePosition() {
+		int xSum = 0;
+		int ySum = 0;
+		int newX, newY;
+		for (Box b: boxes) {
+			xSum += b.getPoint().getX();
+			ySum += b.getPoint().getY();
+		}
+		newX = xSum / boxes.size();
+		newY = ySum / boxes.size();
+		Point p = new Point(newX, newY);
+		return p;
+	}
 	
 	public LinkedList<Box> getBoxes() {
 		return boxes;
