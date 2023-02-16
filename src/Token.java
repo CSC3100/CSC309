@@ -1,4 +1,5 @@
 
+
 public class Token {
 
   private String word;

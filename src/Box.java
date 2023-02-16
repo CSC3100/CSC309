@@ -52,7 +52,6 @@ public class Box {
 		return false;
 	}
 	
-
 	/**
 	 * Initializes the Box instance with a name and coordinates
 	 * 

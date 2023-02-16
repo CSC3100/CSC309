@@ -46,6 +46,7 @@ public class Blackboard extends Observable {
 		notifyObservers();
 	}
 
+
 	public Point calculatePosition() {
 		int xSum = 0;
 		int ySum = 0;
@@ -60,12 +61,13 @@ public class Blackboard extends Observable {
 		return p;
   }
 
+
 	public void renameBoxStatusBarUpdate() {
 		statusBarMessage = "box renamed";
 		setChanged();
 		notifyObservers();
 	}
-  
+
 	public void movedBoxStatusBarUpdate() {
 		statusBarMessage = "box moved";
 		setChanged();
@@ -77,7 +79,7 @@ public class Blackboard extends Observable {
 		setChanged();
 		notifyObservers();
 	}
-  
+
   //	Lexer not currently being used so nowhere to put these functions just yet
 	public void lexerSuccessStatusBarUpdate() {
 		statusBarMessage = "Lexer success";
@@ -118,7 +120,6 @@ public class Blackboard extends Observable {
 
 	public void setStatusBarMessage(String message){statusBarMessage = message;}
 
-
 	/**
 	 * Removes passed Box from the boxes linkedlist
 	 * 
@@ -131,6 +132,7 @@ public class Blackboard extends Observable {
 			notifyObservers();
 		}
 	}
+
 
 	public void setBoxes(LinkedList<Box> boxes)
 	{
