@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
 import java.util.Observable;
@@ -43,6 +44,17 @@ public class Blackboard extends Observable {
 			statusBarMessage = "box deleted";
 			setChanged();
 			notifyObservers();
+		}
+	}
+
+	public void renameBox(Box clickedBox) {
+		String name = JOptionPane.showInputDialog("Please input name");
+		if(name != null) {
+			clickedBox.setName(name);
+			clickedBox.resize();
+			setChanged();
+			notifyObservers();
+			statusBarMessage = "box renamed";
 		}
 	}
 	

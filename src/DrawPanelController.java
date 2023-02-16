@@ -68,11 +68,7 @@ public class DrawPanelController implements MouseListener, MouseMotionListener, 
             Blackboard.getInstance().deleteBox(clickedBox);
             drawPanel.repaint();
         } else if (e.getActionCommand().equals("rename")) {
-            String name = JOptionPane.showInputDialog("Please input name");
-            if(name != null){
-                clickedBox.setName(name);
-                clickedBox.resize();
-            }
+            Blackboard.getInstance().renameBox(clickedBox);
             drawPanel.repaint();
         }
     }
