@@ -1,4 +1,4 @@
-ackage lexer;
+package lexer;
 
 public class Token {
 
