@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainFrame extends JFrame {
     
@@ -29,11 +32,32 @@ public class MainFrame extends JFrame {
         buildMenuItem.addActionListener(actionListener);
         aboutMenuItem.addActionListener(actionListener);
     }
+
+    public void assembleToolBar(){
+        JToolBar bar = new JToolBar();
+
+        JButton[] types = {new JButton("Class"), new JButton("Interface"), new JButton("Abstract")};
+        JButton[] connectionTypes = {new JButton("Inheritance"), new JButton("Association"),
+                new JButton("Composition")};
+        MainFrameController toolBarController = new MainFrameController();
+        for (JButton j : types){
+            j.addActionListener(toolBarController);
+            bar.add(j);
+        }
+        for (JButton j : connectionTypes){
+            j.addActionListener(toolBarController);
+            bar.add(j);
+        }
+
+        bar.setVisible(true);
+        this.add(bar, BorderLayout.NORTH);
+    }
     
     public MainFrame(){
         super("CSC308 - Final Project");
         assembleMenu();
         setLayout(new BorderLayout());
+        assembleToolBar();
         StatusBarPanel status = new StatusBarPanel();
         DrawPanel canvas = new DrawPanel();
         TextPanel textBox = new TextPanel();
