@@ -16,10 +16,26 @@ public class MainFrameController implements ActionListener {
                 System.out.println("under construction ...3");
                 break;
             case "Build Project":
+                Blackboard.getInstance().buildProjectStatusBarUpdate();
                 System.out.println("under construction ...4");
                 break;
-            case "About":
-                System.out.println("under construction ...5");
+            case "Class":
+                System.out.println("Class Button");
+                break;
+            case "Interface":
+                System.out.println("Interface Button");
+                break;
+            case "Abstract":
+                System.out.println("Abstract Button");
+                break;
+            case "Inheritance":
+                System.out.println("Inheritance Button");
+                break;
+            case "Association":
+                System.out.println("Association Button");
+                break;
+            case "Composition":
+                System.out.println("Composition Button");
                 break;
         }
     }

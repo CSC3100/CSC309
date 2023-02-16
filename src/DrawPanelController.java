@@ -26,8 +26,16 @@ public class DrawPanelController implements MouseListener, MouseMotionListener, 
     
     private void createNewBox (int x, int y) {
         String name = JOptionPane.showInputDialog("Please input name");
+        int i = JOptionPane.showConfirmDialog(null, "Do you want to make this an interface?");
+        boolean isInterface = false;
+        if(i == 0){
+            isInterface = true;
+        }
+        else if(i == 2){
+            return;
+        }
         if(name != null){
-            Box box = new Box(name, x, y);
+            Box box = new Box(name, x, y, isInterface);
             Blackboard.getInstance().addBox(box);
         }
     }
@@ -55,6 +63,7 @@ public class DrawPanelController implements MouseListener, MouseMotionListener, 
         if(clickedBox != null){
             clickedBox.setPoint(e.getX(), e.getY());
         }
+        Blackboard.getInstance().movedBoxStatusBarUpdate();
         drawPanel.repaint();
     }
     
@@ -68,11 +77,7 @@ public class DrawPanelController implements MouseListener, MouseMotionListener, 
             Blackboard.getInstance().deleteBox(clickedBox);
             drawPanel.repaint();
         } else if (e.getActionCommand().equals("rename")) {
-            String name = JOptionPane.showInputDialog("Please input name");
-            if(name != null){
-                clickedBox.setName(name);
-                clickedBox.resize();
-            }
+            Blackboard.getInstance().renameBox(clickedBox);
             drawPanel.repaint();
         }
     }
