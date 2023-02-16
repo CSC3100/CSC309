@@ -94,4 +94,6 @@ public class Blackboard extends Observable {
 		return new Point(0, 0);
 	}
 	
+	public void setStatusBarMessage(String message){statusBarMessage = message;}
 }
+
