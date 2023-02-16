@@ -36,7 +36,7 @@ public class Box {
 		this.name = name;
 		this.point = new Point(x, y);
 		this.height = 50;
-		this.width = 100;
+		this.width = 95 + 7*(name.length());
 		this.variables = new ArrayList<>();
 		this.methods = new ArrayList<>();
 		this.connections = new ArrayList<>();
@@ -63,6 +63,7 @@ public class Box {
 	}
 	
 	public void setName(String name) {
+		Blackboard.getInstance().renameBoxStatusBarUpdate();
 		this.name = name;
 	}
 	
