@@ -26,8 +26,16 @@ public class DrawPanelController implements MouseListener, MouseMotionListener, 
     
     private void createNewBox (int x, int y) {
         String name = JOptionPane.showInputDialog("Please input name");
+        int i = JOptionPane.showConfirmDialog(null, "Do you want to make this an interface?");
+        boolean isInterface = false;
+        if(i == 0){
+            isInterface = true;
+        }
+        else if(i == 2){
+            return;
+        }
         if(name != null){
-            Box box = new Box(name, x, y);
+            Box box = new Box(name, x, y, isInterface);
             Blackboard.getInstance().addBox(box);
         }
     }
