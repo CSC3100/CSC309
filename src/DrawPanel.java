@@ -15,8 +15,18 @@ public class DrawPanel extends JPanel implements Observer {
         super.paintComponent(g);
         setBackground(Color.LIGHT_GRAY);
         for(Box c : Blackboard.getInstance().getBoxes()){
-            c.draw(g);
+            if(c.isSelected()){
+                int index = Blackboard.getInstance().getBoxes().indexOf(c);
+                Box temp = c;
+                Blackboard.getInstance().getBoxes().remove(index);
+                Blackboard.getInstance().getBoxes().addLast(temp);
+                break;
+            }
         }
+        for(Box c : Blackboard.getInstance().getBoxes()){
+                c.draw(g);
+        }
+
     }
     
     @Override
