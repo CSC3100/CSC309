@@ -27,11 +27,26 @@ public class Blackboard extends Observable {
 		notifyObservers();
 	}
 
+	public Point calculatePosition() {
+		int xSum = 0;
+		int ySum = 0;
+		int newX, newY;
+		for (Box b: boxes) {
+			xSum += b.getPoint().getX();
+			ySum += b.getPoint().getY();
+		}
+		newX = xSum / boxes.size();
+		newY = ySum / boxes.size();
+		Point p = new Point(newX, newY);
+		return p;
+  }
+
 	public void renameBoxStatusBarUpdate() {
 		statusBarMessage = "box renamed";
 		setChanged();
 		notifyObservers();
 	}
+  
 	public void movedBoxStatusBarUpdate() {
 		statusBarMessage = "box moved";
 		setChanged();
@@ -43,7 +58,8 @@ public class Blackboard extends Observable {
 		setChanged();
 		notifyObservers();
 	}
-//	Lexer not currently being used so nowhere to put these functions just yet
+  
+  //	Lexer not currently being used so nowhere to put these functions just yet
 	public void lexerSuccessStatusBarUpdate() {
 		statusBarMessage = "Lexer success";
 		setChanged();
