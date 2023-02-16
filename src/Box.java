@@ -63,6 +63,7 @@ public class Box {
 	}
 	
 	public void setName(String name) {
+		Blackboard.getInstance().renameBoxStatusBarUpdate();
 		this.name = name;
 	}
 	
