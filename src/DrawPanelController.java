@@ -55,6 +55,7 @@ public class DrawPanelController implements MouseListener, MouseMotionListener, 
         if(clickedBox != null){
             clickedBox.setPoint(e.getX(), e.getY());
         }
+        Blackboard.getInstance().movedBoxStatusBarUpdate();
         drawPanel.repaint();
     }
     
