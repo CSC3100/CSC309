@@ -1,4 +1,3 @@
-ackage lexer;
 
 public class Token {
 
